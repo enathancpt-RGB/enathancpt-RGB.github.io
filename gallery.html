@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery of Dudes | dude & van</title>
+    <meta name="description" content="Browse our gallery — the team, the fleet, and some of the remarkable moves Dude & Van has made across Cape Town and beyond.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Gallery page hero banner */
+        .gallery-hero {
+            background-color: var(--primary);
+            padding: 9rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top, rgba(255,209,0,0.08) 0%, transparent 65%);
+        }
+
+        .gallery-hero h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .gallery-hero p {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.15rem;
+            max-width: 560px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Standalone gallery page layout */
+        .gallery-page {
+            background-color: var(--primary);
+            padding: 3rem 0 6rem;
+        }
+
+        /* Larger grid for dedicated page */
+        .gallery-page .gallery-grid {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 260px;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-page .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 220px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .gallery-page .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 170px;
+            }
+            .gallery-hero h1 { font-size: 2.2rem; }
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-truck-fast text-accent"></i>
+                dude<span class="text-accent">&</span>van
+            </a>
+            <div class="nav-links">
+                <a href="index.html#services">Our services</a>
+                <a href="index.html#about">About the dude</a>
+                <a href="gallery.html" style="color: var(--accent);">Gallery</a>
+                <a href="index.html#reviews">Reviews</a>
+            </div>
+            <div class="nav-contact">
+                <a href="tel:+27791020980" class="btn-outline">
+                    <i class="fa-solid fa-phone"></i> <span>Call Us</span>
+                </a>
+                <a href="index.html#quote" class="btn-primary">Get a Quote</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#services" class="mobile-link">Our services</a>
+        <a href="index.html#about" class="mobile-link">About the dude</a>
+        <a href="gallery.html" class="mobile-link" style="color: var(--accent);">Gallery</a>
+        <a href="index.html#reviews" class="mobile-link">Reviews</a>
+        <a href="index.html#quote" class="btn-primary mobile-quote">Get a Quote</a>
+    </div>
+
+    <!-- Hero Banner -->
+    <header class="gallery-hero">
+        <h1>Gallery of <span class="text-accent">dudes</span></h1>
+        <p>A glimpse into the moves we've made, the places we've been, and the team that makes it all happen.</p>
+    </header>
+
+    <!-- Gallery Page -->
+    <section class="gallery-page">
+        <div class="container">
+
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to home
+            </a>
+
+            <!-- Filter tabs -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="team">Our Team</button>
+                <button class="filter-btn" data-filter="fleet">Fleet</button>
+                <button class="filter-btn" data-filter="action">In Action</button>
+                <button class="filter-btn" data-filter="delivery">Deliveries</button>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+
+                <div class="gallery-item tall" data-cat="team">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2020/06/Team2019.jpg" alt="Dude & Van Team 2019" loading="lazy">
+                    <div class="gallery-overlay"><span>Team 2019</span></div>
+                </div>
+
+                <div class="gallery-item" data-cat="fleet">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2020/06/Vansandtrucks.jpg" alt="Our Vans & Trucks" loading="lazy">
+                    <div class="gallery-overlay"><span>Our Vans &amp; Trucks</span></div>
+                </div>
+
+                <div class="gallery-item" data-cat="action">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2018/09/40-cubic_8-Tonne.jpg" alt="8 Tonne Truck" loading="lazy">
+                    <div class="gallery-overlay"><span>Our 8 Tonne Truck</span></div>
+                </div>
+
+                <div class="gallery-item wide" data-cat="team">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2018/09/31964332_919397328185032_1355720183762649088_n.jpg" alt="Dude & Van Team Langebaan 2018" loading="lazy">
+                    <div class="gallery-overlay"><span>Langebaan 2018</span></div>
+                </div>
+
+                <div class="gallery-item" data-cat="delivery">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2016/09/13301482_474204026037700_4004550412880709788_o.jpg" alt="Team Dude Van 2016" loading="lazy">
+                    <div class="gallery-overlay"><span>Team Dude — May 2016</span></div>
+                </div>
+
+                <div class="gallery-item tall" data-cat="action">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2015/03/10272170_10152518947331183_1242967501_o.jpg" alt="Dude & Van Cape Town" loading="lazy">
+                    <div class="gallery-overlay"><span>We ❤️ Cape Town</span></div>
+                </div>
+
+                <div class="gallery-item" data-cat="fleet">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2015/05/Sweet-Fleet.jpg" alt="Sweet Fleet" loading="lazy">
+                    <div class="gallery-overlay"><span>Our Sweet Fleet</span></div>
+                </div>
+
+                <div class="gallery-item wide" data-cat="delivery">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2015/05/longbay.jpg" alt="Hout Bay Delivery" loading="lazy">
+                    <div class="gallery-overlay"><span>Hout Bay Delivery</span></div>
+                </div>
+
+                <div class="gallery-item" data-cat="action">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2016/06/0ew.jpg" alt="Dude & Van Team" loading="lazy">
+                    <div class="gallery-overlay"><span>The Dude Team</span></div>
+                </div>
+
+                <div class="gallery-item wide" data-cat="team">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2015/05/longbay.jpg" alt="Blouberg & Beyond" loading="lazy">
+                    <div class="gallery-overlay"><span>Blouberg &amp; Beyond</span></div>
+                </div>
+
+                <div class="gallery-item tall" data-cat="fleet">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2020/06/Vansandtrucks.jpg" alt="5 Tonne Truck" loading="lazy">
+                    <div class="gallery-overlay"><span>Our 5 Tonne Truck</span></div>
+                </div>
+
+                <div class="gallery-item" data-cat="delivery">
+                    <img src="http://www.dudeandvan.co.za/wp-content/uploads/2018/09/40-cubic_8-Tonne.jpg" alt="Piano Delivery" loading="lazy">
+                    <div class="gallery-overlay"><span>Baby Grand Piano Delivery</span></div>
+                </div>
+
+            </div><!-- /gallery-grid -->
+
+            <div class="gallery-cta" style="margin-top: 4rem;">
+                <a href="http://www.dudeandvan.co.za/fleetteam/" target="_blank" class="btn-secondary">
+                    View Full Gallery on Original Site <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div class="lightbox-inner">
+            <img src="" alt="" id="lightboxImg">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo text-white">
+                        <i class="fa-solid fa-truck-fast text-accent"></i>
+                        dude<span class="text-accent">&</span>van
+                    </a>
+                    <p class="mt-2 text-gray">Cape Town based mini movers company. Service excellence since 2009.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="gallery.html">Gallery of dudes</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Helpful Links</h4>
+                    <a href="http://www.dudeandvan.co.za/wp-content/uploads/2025/03/dudevancubicinventory_2025.xls">Inventory Spreadsheet</a>
+                    <a href="http://www.dudeandvan.co.za/wp-content/uploads/2025/10/2025_October_dude-van-Product-Rate-Sheet.pdf">Boxes &amp; Packaging</a>
+                    <a href="https://nicebox.co.za/shop" target="_blank">Hire Boxes</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Dude & Van. All rights reserved. Made with ❤️ in Cape Town</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        let open = false;
+        btn.addEventListener('click', () => {
+            open = !open;
+            menu.classList.toggle('active', open);
+            btn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+            menu.classList.remove('active');
+            btn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            open = false;
+        }));
+
+        // Gallery filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                galleryItems.forEach(item => {
+                    item.classList.toggle('hidden', filter !== 'all' && item.dataset.cat !== filter);
+                });
+            });
+        });
+
+        // Lightbox
+        const lightbox      = document.getElementById('lightbox');
+        const lightboxImg   = document.getElementById('lightboxImg');
+        const lightboxCap   = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const cap = item.querySelector('.gallery-overlay span');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCap.textContent = cap ? cap.textContent : '';
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+</body>
+</html>
